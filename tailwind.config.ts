@@ -13,7 +13,30 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        playfair: ['"Playfair Display"', 'serif'],
+        cormorant: ['"Cormorant Garamond"', 'serif'],
+        inter: ['Inter', 'sans-serif'],
+      },
       colors: {
+        g: {
+          dark: '#1F1F1F',
+          darkCard: '#2A2A2A',
+          darkDeep: '#141414',
+          darkFooter: '#0D0D0D',
+          warm: '#F1EFEA',
+          warmAlt: '#E8E4DD',
+          card: '#FAF8F5',
+          gold: '#C6A85A',
+          goldHover: '#B8963E',
+          goldSoft: '#C4B89A',
+          navy: '#2E3A46',
+          textLight: '#E5E5E5',
+          textMuted: '#9A9A9A',
+          textWarm: '#D0C8BC',
+          textDark: '#2A2A2A',
+          textDarkMuted: '#5A5A5A',
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -65,20 +88,12 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {

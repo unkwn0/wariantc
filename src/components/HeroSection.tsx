@@ -1,0 +1,35 @@
+import { ChevronDown } from 'lucide-react';
+
+export default function HeroSection() {
+  return (
+    <section className="relative min-h-[90dvh] bg-gradient-to-b from-g-dark to-stone-800 flex items-center justify-center text-center px-4">
+      <div className="absolute inset-0 bg-black/55" />
+      <div className="relative z-10 max-w-3xl mx-auto" data-animate="fade-in">
+        <span className="font-cormorant text-sm text-g-gold uppercase tracking-[5px]">EST. 1988</span>
+        <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-white mt-4 tracking-wide">GRANBET</h1>
+        <h2 className="font-playfair text-2xl md:text-4xl text-g-gold mt-2 tracking-wide">Zakład Kamieniarski</h2>
+        <div className="w-24 h-0.5 bg-g-gold mx-auto my-6" />
+        <p className="font-inter text-lg text-g-textWarm">
+          Tradycja od 1988 roku · Hrubieszów · Kryłów · Dołhobyczów
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <a
+            href="#galeria"
+            className="bg-g-gold text-g-dark font-inter font-bold px-8 min-h-[52px] rounded-lg inline-flex items-center justify-center hover:bg-g-goldHover hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(198,168,90,0.35)] transition-all duration-200"
+          >
+            Nasze realizacje
+          </a>
+          <a
+            href="#kontakt"
+            className="bg-transparent text-g-gold border-2 border-g-gold font-inter font-bold px-8 min-h-[52px] rounded-lg inline-flex items-center justify-center hover:bg-g-gold hover:text-g-dark transition-all duration-200"
+          >
+            Porozmawiajmy
+          </a>
+        </div>
+      </div>
+      <a href="#o-nas" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-g-gold animate-bounce" aria-hidden="true">
+        <ChevronDown className="w-8 h-8" />
+      </a>
+    </section>
+  );
+}
