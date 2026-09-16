@@ -18,7 +18,7 @@ const lokalizacje = [
     tytul: 'Zakład produkcyjny — Kryłów',
     adres: 'ul. Hrubieszowska 33, Kryłów (gm. Mircze)',
     tel: { display: '502 480 543', href: 'tel:+48502480543' },
-    godziny: 'Pon–Pt 8:00–17:00, Sob 8:00–15:00',
+    godziny: 'Pon–Pt 7:00–17:00, Sob 7:00–15:00',
     uwaga: '',
     mapa: 'https://maps.google.com/?q=Krylow+ul.+Hrubieszowska+33+gmina+Mircze',
   },
@@ -26,7 +26,7 @@ const lokalizacje = [
     tytul: 'Biuro handlowe — Hrubieszów',
     adres: 'ul. Nowa 10, Hrubieszów',
     tel: { display: '697 994 924', href: 'tel:+48697994924' },
-    godziny: '',
+    godziny: 'Pon–Pt 8:00–17:00, Sob 8:00–15:00',
     uwaga: '',
     mapa: 'https://maps.google.com/?q=Hrubieszow+ul.+Nowa+10',
   },
@@ -109,7 +109,10 @@ export default function ContactSection() {
                     <Mail className="w-5 h-5" /> granbet@vp.pl
                   </a>
                 </div>
-                <p className="font-inter text-sm text-g-textMuted mt-6">Pon–Pt 8:00–17:00 · Sob 8:00–15:00</p>
+                <div className="font-inter text-sm text-g-textMuted mt-6 space-y-0.5">
+                  <p>Kryłów: Pon–Pt 7:00–17:00 · Sob 7:00–15:00</p>
+                  <p>Hrubieszów: Pon–Pt 8:00–17:00 · Sob 8:00–15:00</p>
+                </div>
               </div>
             ) : status === 'ok' ? (
               <div className="bg-g-darkCard border border-g-gold rounded-xl p-8 text-center" role="alert" aria-live="polite">
