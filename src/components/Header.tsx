@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 
 const navLinks = [
   { label: 'O nas', href: '#o-nas' },
   { label: 'Oferta', href: '#oferta' },
   { label: 'Realizacje', href: '#galeria' },
+  { label: 'Proces', href: '#proces' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Kontakt', href: '#kontakt' },
 ];
@@ -13,11 +14,34 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Menu mobilne: Escape zamyka, tło się nie przewija, fokus trafia do nakładki
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenuOpen(false); };
+    document.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeBtnRef.current?.focus();
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+      menuBtnRef.current?.focus();
+    };
+  }, [menuOpen]);
+
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <header
@@ -30,7 +54,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 md:h-[72px]">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <a href="#" className="block">
+          <a href="#" onClick={scrollToTop} className="block" aria-label="GRANBET — powrót na górę strony">
             <span className={`font-playfair font-bold text-2xl transition-colors duration-300 ${scrolled ? 'text-white' : 'text-g-textDark'}`}>
               GRANBET
             </span>
@@ -77,9 +101,12 @@ export default function Header() {
             502 480 543
           </a>
           <button
+            ref={menuBtnRef}
             className="md:hidden text-g-gold"
             onClick={() => setMenuOpen(true)}
             aria-label="Otwórz menu"
+            aria-expanded={menuOpen}
+            aria-controls="menu-mobilne"
           >
             <Menu className="w-7 h-7" />
           </button>
@@ -88,8 +115,9 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[60] bg-g-dark flex flex-col items-center justify-center">
+        <div id="menu-mobilne" role="dialog" aria-modal="true" aria-label="Menu nawigacyjne" className="fixed inset-0 z-[60] bg-g-dark flex flex-col items-center justify-center">
           <button
+            ref={closeBtnRef}
             className="absolute top-5 right-5 text-g-gold"
             onClick={() => setMenuOpen(false)}
             aria-label="Zamknij menu"
