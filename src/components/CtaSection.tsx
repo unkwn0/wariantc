@@ -1,6 +1,6 @@
 export default function CtaSection() {
   return (
-    <section className="bg-g-navy py-20 border-t-[3px] border-g-gold text-center">
+    <section className="bg-g-dark py-20 border-t-[3px] border-g-gold text-center">
       <div className="max-w-3xl mx-auto px-4">
         <span className="font-cormorant text-base text-g-gold uppercase tracking-[3px]">Jesteśmy tu dla Ciebie</span>
         <h2 className="font-playfair text-3xl md:text-4xl text-white mt-4 tracking-wide">Pomożemy Ci godnie upamiętnić bliskich</h2>

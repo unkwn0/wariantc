@@ -16,7 +16,7 @@ import { useFadeIn } from '@/hooks/useFadeIn';
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "GRANBET Zakład Kamieniarski",
+  "name": "GRANBET Zakład Kamieniarski Henryk Sobczuk",
   "description": "Zakład kamieniarski oferujący nagrobki granitowe, grobowce, fotoceramikę, schody i parapety. Tradycja od 1988 roku.",
   "telephone": "+48502480543",
   "email": "granbet@vp.pl",
@@ -32,17 +32,12 @@ const localBusinessSchema = {
   },
   "geo": { "@type": "GeoCoordinates", "latitude": 50.6825, "longitude": 24.0083 },
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "17:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "07:00", "closes": "15:00" }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "15:00" }
   ],
   "foundingDate": "1988-01-01",
   "priceRange": "$$",
-  "hasMap": "https://maps.google.com/?q=Krylow+ul.+Hrubieszowska+33+gmina+Mircze",
-  "review": [
-    { "@type": "Review", "author": {"@type": "Person","name": "Rodzina K."}, "reviewRating": {"@type": "Rating","ratingValue": "5","bestRating": "5"}, "reviewBody": "Jesteśmy bardzo wdzięczni za pomoc i profesjonalne podejście. Nagrobek wykonany dokładnie według naszych życzeń." },
-    { "@type": "Review", "author": {"@type": "Person","name": "Rodzina W."}, "reviewRating": {"@type": "Rating","ratingValue": "5","bestRating": "5"}, "reviewBody": "Obsługa z sercem — czuliśmy się zaopiekowani na każdym etapie. Nagrobek jest piękny i trwały." },
-    { "@type": "Review", "author": {"@type": "Person","name": "Rodzina N."}, "reviewRating": {"@type": "Rating","ratingValue": "5","bestRating": "5"}, "reviewBody": "Terminowość, jakość i ludzkie podejście na najwyższym poziomie." }
-  ]
+  "hasMap": "https://maps.google.com/?q=Krylow+ul.+Hrubieszowska+33+gmina+Mircze"
 };
 
 const faqSchema = {
