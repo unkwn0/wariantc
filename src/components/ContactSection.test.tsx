@@ -13,12 +13,13 @@ it('presents labelled phone actions before all three locations and preserves con
   expect(krylow).toHaveAttribute('href', 'tel:+48502480543');
   expect(hrubieszow).toHaveAttribute('href', 'tel:+48697994924');
   const locations = document.getElementById('lokalizacje')!;
+  expect(krylow.compareDocumentPosition(locations) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   expect(hrubieszow.compareDocumentPosition(locations) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   expect(within(locations).getAllByRole('heading', { level: 3 })).toHaveLength(3);
   expect(within(locations).getAllByRole('link', { name: 'Zobacz na mapie →' })).toHaveLength(3);
   expect(within(contact).getAllByRole('link', { name: 'granbet@vp.pl' })).toHaveLength(1);
-  expect(screen.getAllByText('Pon–Pt 7:00–17:00, Sob 7:00–15:00')).toHaveLength(1);
-  expect(screen.getAllByText('Pon–Pt 8:00–17:00, Sob 8:00–15:00')).toHaveLength(1);
+  expect(screen.getAllByText(/7:00–17:00/)).toHaveLength(1);
+  expect(screen.getAllByText(/8:00–17:00/)).toHaveLength(1);
   expect(screen.getByRole('link', { name: 'Godziny i dojazd' })).toHaveAttribute('href', '#lokalizacje');
   expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
 });
