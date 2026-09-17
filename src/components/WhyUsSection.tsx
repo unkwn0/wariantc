@@ -28,7 +28,7 @@ function StatItem({ end, suffix, label }: { end: number; suffix: string; label: 
 
 export default function WhyUsSection() {
   return (
-    <section className="bg-g-dark py-24">
+    <section data-reveal="off" className="bg-g-dark py-24">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="font-playfair text-3xl md:text-4xl text-white text-center tracking-wide">Dlaczego rodziny nam ufają?</h2>
         <p className="font-inter text-lg text-g-textMuted text-center mt-2">Ponad 35 lat budujemy zaufanie jedną realizacją na raz</p>

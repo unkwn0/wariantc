@@ -25,7 +25,7 @@ export default function Header() {
 
   // The dialog handles focus, Escape and scroll locking; close on desktop resize.
   useEffect(() => {
-    const desktop = window.matchMedia('(min-width: 1280px)');
+    const desktop = window.matchMedia('(min-width: 1024px)');
     const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
     desktop.addEventListener('change', closeOnDesktop);
     return () => desktop.removeEventListener('change', closeOnDesktop);
@@ -58,7 +58,7 @@ export default function Header() {
         </div>
 
         {/* Desktop nav */}
-        <nav aria-label="Nawigacja główna" className="hidden xl:flex items-center gap-6">
+        <nav aria-label="Nawigacja główna" className="hidden lg:flex items-center gap-6">
           {navLinks.map(link => (
             <a
               key={link.href}
@@ -95,7 +95,7 @@ export default function Header() {
           </a>
           <button
             ref={menuBtnRef}
-            className={`xl:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg ${scrolled ? 'text-g-gold' : 'text-g-goldText'}`}
+            className={`lg:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg ${scrolled ? 'text-g-gold' : 'text-g-goldText'}`}
             onClick={() => setMenuOpen(true)}
             aria-label="Otwórz menu"
             aria-expanded={menuOpen}

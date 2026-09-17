@@ -2,7 +2,7 @@ import { ChevronDown } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90dvh] bg-gradient-to-b from-g-darkDeep via-g-dark to-g-darkCard flex items-center justify-center text-center px-4">
+    <section data-reveal="off" className="relative min-h-[90dvh] bg-gradient-to-b from-g-darkDeep via-g-dark to-g-darkCard flex items-center justify-center text-center px-4">
       <div className="relative z-10 max-w-3xl mx-auto" data-animate="fade-in">
         <span className="font-cormorant text-sm text-g-gold uppercase tracking-[5px]">EST. 1988</span>
         <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-white mt-4 tracking-wide">GRANBET</h1>
