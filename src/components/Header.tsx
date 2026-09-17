@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
+import * as Dialog from '@radix-ui/react-dialog';
 
 const navLinks = [
   { label: 'O nas', href: '#o-nas' },
@@ -14,7 +15,6 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const closeBtnRef = useRef<HTMLButtonElement>(null);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -23,24 +23,17 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Menu mobilne: Escape zamyka, tło się nie przewija, fokus trafia do nakładki
+  // The dialog handles focus, Escape and scroll locking; close on desktop resize.
   useEffect(() => {
-    if (!menuOpen) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenuOpen(false); };
-    document.addEventListener('keydown', onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    closeBtnRef.current?.focus();
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
-      menuBtnRef.current?.focus();
-    };
-  }, [menuOpen]);
+    const desktop = window.matchMedia('(min-width: 1280px)');
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
 
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   };
 
   return (
@@ -51,7 +44,7 @@ export default function Header() {
           : 'bg-g-card'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 md:h-[72px]">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 gap-2 flex items-center justify-between h-16 md:h-[72px]">
         {/* Logo */}
         <div className="flex-shrink-0">
           <a href="#" onClick={scrollToTop} className="block" aria-label="GRANBET — powrót na górę strony">
@@ -65,13 +58,13 @@ export default function Header() {
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav aria-label="Nawigacja główna" className="hidden xl:flex items-center gap-6">
           {navLinks.map(link => (
             <a
               key={link.href}
               href={link.href}
-              className={`font-inter text-base transition-colors duration-200 hover:text-g-gold ${
-                scrolled ? 'text-g-textLight' : 'text-g-textDark'
+              className={`font-inter text-base transition-colors duration-200 ${
+                scrolled ? 'text-g-textLight hover:text-g-gold' : 'text-g-textDark hover:text-g-goldText'
               }`}
             >
               {link.label}
@@ -80,10 +73,10 @@ export default function Header() {
         </nav>
 
         {/* Phone + hamburger */}
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-3">
           <a
             href="tel:+48502480543"
-            className={`font-inter font-bold text-[17px] px-5 py-2.5 rounded-lg transition-all duration-300 hidden sm:inline-flex items-center gap-2 ${
+            className={`font-inter font-bold text-[17px] whitespace-nowrap px-5 py-2.5 rounded-lg transition-all duration-300 hidden sm:inline-flex items-center gap-2 ${
               scrolled
                 ? 'bg-g-gold text-g-dark'
                 : 'bg-g-dark text-g-gold'
@@ -95,14 +88,14 @@ export default function Header() {
           {/* Mobile phone */}
           <a
             href="tel:+48502480543"
-            className="sm:hidden font-inter font-bold text-base text-g-gold flex items-center gap-1"
+            className={`sm:hidden font-inter font-bold text-[16px] whitespace-nowrap min-h-[44px] flex items-center gap-1 ${scrolled ? 'text-g-gold' : 'text-g-goldText'}`}
           >
-            <Phone className="w-4 h-4" />
+            <Phone className="hidden min-[390px]:block w-4 h-4 shrink-0" aria-hidden="true" />
             502 480 543
           </a>
           <button
             ref={menuBtnRef}
-            className="md:hidden text-g-gold"
+            className={`xl:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg ${scrolled ? 'text-g-gold' : 'text-g-goldText'}`}
             onClick={() => setMenuOpen(true)}
             aria-label="Otwórz menu"
             aria-expanded={menuOpen}
@@ -114,17 +107,20 @@ export default function Header() {
       </div>
 
       {/* Mobile menu */}
-      {menuOpen && (
-        <div id="menu-mobilne" role="dialog" aria-modal="true" aria-label="Menu nawigacyjne" className="fixed inset-0 z-[60] bg-g-dark flex flex-col items-center justify-center">
-          <button
-            ref={closeBtnRef}
-            className="absolute top-5 right-5 text-g-gold"
-            onClick={() => setMenuOpen(false)}
+      <Dialog.Root open={menuOpen} onOpenChange={setMenuOpen}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 z-[60] bg-g-dark" />
+          <Dialog.Content id="menu-mobilne" aria-describedby={undefined}
+            onCloseAutoFocus={(event) => { event.preventDefault(); menuBtnRef.current?.focus(); }}
+            className="fixed inset-0 z-[61] bg-g-dark overflow-y-auto px-6 pt-20 pb-8">
+          <Dialog.Title className="sr-only">Menu nawigacyjne</Dialog.Title>
+          <Dialog.Close
+            className="absolute top-4 right-4 min-w-[44px] min-h-[44px] flex items-center justify-center text-g-gold rounded-lg"
             aria-label="Zamknij menu"
           >
             <X className="w-8 h-8" />
-          </button>
-          <nav className="flex flex-col items-center gap-2">
+          </Dialog.Close>
+          <nav aria-label="Nawigacja mobilna" className="flex flex-col items-center gap-2">
             {navLinks.map(link => (
               <a
                 key={link.href}
@@ -136,8 +132,12 @@ export default function Header() {
               </a>
             ))}
           </nav>
-        </div>
-      )}
+          <a href="tel:+48502480543" className="mt-6 mx-auto w-fit flex items-center justify-center gap-2 min-h-[48px] px-6 rounded-lg bg-g-gold text-g-dark font-bold whitespace-nowrap">
+            <Phone className="w-5 h-5" aria-hidden="true" />502 480 543
+          </a>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </header>
   );
 }

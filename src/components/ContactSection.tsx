@@ -75,20 +75,20 @@ export default function ContactSection() {
           <div className="space-y-8" data-animate="fade-in">
             {lokalizacje.map((l) => (
               <div key={l.tytul}>
-                <h3 className="font-cormorant text-xl text-g-gold font-semibold mb-2">{l.tytul}</h3>
+                <h3 className="font-cormorant text-xl text-g-goldText font-semibold mb-2">{l.tytul}</h3>
                 <div className="space-y-1 font-inter text-base text-g-textDark">
-                  <p className="flex items-start gap-2"><MapPin className="w-5 h-5 text-g-gold flex-shrink-0 mt-0.5" />{l.adres}</p>
-                  <p className="flex items-center gap-2"><Phone className="w-5 h-5 text-g-gold flex-shrink-0" /><a href={l.tel.href} className="font-bold text-g-gold hover:text-g-goldHover transition-colors">{l.tel.display}</a></p>
-                  {l.godziny && <p className="flex items-center gap-2"><Clock className="w-5 h-5 text-g-gold flex-shrink-0" />{l.godziny}</p>}
+                  <p className="flex items-start gap-2"><MapPin className="w-5 h-5 text-g-goldText flex-shrink-0 mt-0.5" />{l.adres}</p>
+                  <p className="flex items-center gap-2"><Phone className="w-5 h-5 text-g-goldText flex-shrink-0" /><a href={l.tel.href} className="font-bold text-g-goldText hover:text-g-goldTextHover transition-colors">{l.tel.display}</a></p>
+                  {l.godziny && <p className="flex items-center gap-2"><Clock className="w-5 h-5 text-g-goldText flex-shrink-0" />{l.godziny}</p>}
                   {l.uwaga && <p className="text-sm text-g-textDarkMuted ml-7">{l.uwaga}</p>}
-                  <a href={l.mapa} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-g-gold underline underline-offset-2 hover:text-g-goldHover transition-colors ml-7">Zobacz na mapie →</a>
+                  <a href={l.mapa} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-g-goldText underline underline-offset-2 hover:text-g-goldTextHover transition-colors ml-7">Zobacz na mapie →</a>
                 </div>
               </div>
             ))}
 
             <p className="flex items-center gap-2 font-inter text-base text-g-textDark pt-4 border-t border-g-gold/20">
-              <Mail className="w-5 h-5 text-g-gold flex-shrink-0" />
-              <a href="mailto:granbet@vp.pl" className="text-g-gold hover:text-g-goldHover transition-colors">granbet@vp.pl</a>
+              <Mail className="w-5 h-5 text-g-goldText flex-shrink-0" />
+              <a href="mailto:granbet@vp.pl" className="text-g-goldText hover:text-g-goldTextHover transition-colors">granbet@vp.pl</a>
             </p>
           </div>
 

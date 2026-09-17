@@ -36,7 +36,7 @@ export default function AboutSection() {
 
         {/* Obszar działania — pod lokalne SEO */}
         <div className="mt-16 max-w-4xl mx-auto text-center" data-animate="fade-in">
-          <h3 className="font-cormorant text-2xl text-g-gold font-semibold">Obszar działania</h3>
+          <h3 className="font-cormorant text-2xl text-g-goldText font-semibold">Obszar działania</h3>
           <p className="font-inter text-base text-g-textDarkMuted mt-2 mb-5">
             Wykonujemy nagrobki i realizujemy zamówienia w Hrubieszowie, Kryłowie, Dołhobyczowie oraz okolicznych miejscowościach:
           </p>

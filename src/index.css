@@ -46,4 +46,20 @@
   body {
     @apply font-inter leading-[1.75] bg-g-warm text-g-textDark;
   }
+  :focus-visible {
+    outline: 3px solid #796020;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 3px #FAF8F5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  [data-animate="fade-in"] { transform: none !important; }
 }

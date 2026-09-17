@@ -26,11 +26,11 @@ export default function FaqSection() {
               <div key={i} className="bg-g-card border border-g-goldSoft rounded-lg overflow-hidden" data-animate="fade-in">
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : i)}
-                  className="w-full flex items-center justify-between p-5 text-left font-playfair text-lg text-g-textDark hover:text-g-gold transition-colors"
+                  className="w-full flex items-center justify-between p-5 text-left font-playfair text-lg text-g-textDark hover:text-g-goldText transition-colors"
                   aria-expanded={isOpen}
                 >
                   {faq.q}
-                  <ChevronDown className={`w-5 h-5 text-g-gold transition-transform duration-300 flex-shrink-0 ml-4 ${isOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-5 h-5 text-g-goldText transition-transform duration-300 flex-shrink-0 ml-4 ${isOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}

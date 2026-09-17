@@ -28,6 +28,8 @@ export default {
           warmAlt: '#E8E4DD',
           card: '#FAF8F5',
           gold: '#C6A85A',
+          goldText: '#796020',
+          goldTextHover: '#614B16',
           goldHover: '#B8963E',
           goldSoft: '#C4B89A',
           navy: '#2E3A46',
