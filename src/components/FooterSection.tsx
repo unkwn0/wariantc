@@ -21,11 +21,10 @@ export default function FooterSection() {
         <div>
           <h4 className="font-cormorant text-g-gold font-semibold mb-3">Kontakt</h4>
           <div className="space-y-1 font-inter text-base">
-            <a href="tel:+48502480543" className="block text-g-textLight hover:text-g-gold transition-colors">☎ 502 480 543</a>
-            <a href="tel:+48697994924" className="block text-g-textLight hover:text-g-gold transition-colors">☎ 697 994 924</a>
-            <a href="mailto:granbet@vp.pl" className="block text-g-textLight hover:text-g-gold transition-colors">granbet@vp.pl</a>
-            <span className="block text-g-textMuted text-sm pt-2">Kryłów: Pon–Pt 7:00–17:00, Sob 7:00–15:00</span>
-            <span className="block text-g-textMuted text-sm">Hrubieszów: Pon–Pt 8:00–17:00, Sob 8:00–15:00</span>
+            <a href="tel:+48502480543" className="flex flex-wrap items-center gap-x-2 min-h-[44px] text-g-textLight hover:text-g-gold transition-colors"><span>Kryłów:</span><span className="whitespace-nowrap">502 480 543</span></a>
+            <a href="tel:+48697994924" className="flex flex-wrap items-center gap-x-2 min-h-[44px] text-g-textLight hover:text-g-gold transition-colors"><span>Hrubieszów:</span><span className="whitespace-nowrap">697 994 924</span></a>
+            <a href="mailto:granbet@vp.pl" className="flex items-center min-h-[44px] text-g-textLight hover:text-g-gold transition-colors">granbet@vp.pl</a>
+            <a href="#lokalizacje" className="inline-flex items-center min-h-[44px] text-sm text-g-gold underline underline-offset-4 hover:text-white transition-colors">Godziny i dojazd</a>
           </div>
         </div>
       </div>

@@ -8,7 +8,6 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ProcessSection from '@/components/ProcessSection';
 import GallerySection from '@/components/GallerySection';
 import FaqSection from '@/components/FaqSection';
-import CtaSection from '@/components/CtaSection';
 import ContactSection from '@/components/ContactSection';
 import FooterSection from '@/components/FooterSection';
 import { useFadeIn } from '@/hooks/useFadeIn';
@@ -81,7 +80,6 @@ export default function Index() {
         <ProcessSection />
         <GallerySection />
         <FaqSection />
-        <CtaSection />
         <ContactSection />
       </main>
       <FooterSection />
