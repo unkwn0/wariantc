@@ -1,3 +1,11 @@
+> **UWAGA — dokument historyczny, nie źródło danych firmy.**
+> To zapis pierwotnego promptu budowy strony. Zawiera nieaktualne i
+> niepotwierdzone liczby („ponad 35 lat", „35+", „500+ rodzin",
+> „setki zrealizowanych nagrobków", „4–8 tygodni", „około 20 km od
+> Hrubieszowa"), które zostały ze strony usunięte w Etapie 5.
+> Nie kopiuj stąd treści z powrotem do kodu. Obowiązujące dane firmy
+> znajdują się w komponentach sekcji kontaktowej, FAQ i stopki.
+
 # PROMPT FINALNY — WARIANT C „Złoto i Tradycja"
 
 # POLECENIE

@@ -1,3 +1,9 @@
+// ─── SEKCJA NIEUŻYWANA ────────────────────────────────────────────────
+// Ten komponent NIE jest renderowany od Etapu 2 (kontakt został uproszczony).
+// Zostaje wyłącznie jako materiał historyczny. Zanim wrócisz go na stronę:
+// sprawdź numery, treści i wszelkie liczby względem aktualnych danych firmy —
+// tu nie ma automatycznej kontroli spójności z sekcją kontaktową.
+// ──────────────────────────────────────────────────────────────────────
 export default function CtaSection() {
   return (
     <section data-reveal="off" className="bg-g-dark py-20 border-t-[3px] border-g-gold text-center">
