@@ -45,7 +45,8 @@ const faqSchema = {
     "@type": "Question",
     "name": faq.q,
     "acceptedAnswer": { "@type": "Answer", "text": faq.a },
-  }))};
+  })),
+};
 
 export default function Index() {
   useFadeIn();
