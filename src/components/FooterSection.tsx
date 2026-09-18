@@ -11,7 +11,7 @@ export default function FooterSection() {
           </p>
         </div>
         <div>
-          <h4 className="font-cormorant text-g-gold font-semibold mb-3">Adresy</h4>
+          <h2 className="font-cormorant text-g-gold font-semibold mb-3">Adresy</h2>
           <ul className="space-y-2 font-inter text-sm text-g-textLight">
             <li><span className="text-g-textMuted">Zakład:</span> Kryłów, ul. Hrubieszowska 33 (gm. Mircze)</li>
             <li><span className="text-g-textMuted">Biuro:</span> Hrubieszów, ul. Nowa 10</li>
@@ -19,7 +19,7 @@ export default function FooterSection() {
           </ul>
         </div>
         <div>
-          <h4 className="font-cormorant text-g-gold font-semibold mb-3">Kontakt</h4>
+          <h2 className="font-cormorant text-g-gold font-semibold mb-3">Kontakt</h2>
           <div className="space-y-1 font-inter text-base">
             <a href="tel:+48502480543" className="flex flex-wrap items-center gap-x-2 min-h-[44px] text-g-textLight hover:text-g-gold transition-colors"><span>Kryłów:</span><span className="whitespace-nowrap">502 480 543</span></a>
             <a href="tel:+48697994924" className="flex flex-wrap items-center gap-x-2 min-h-[44px] text-g-textLight hover:text-g-gold transition-colors"><span>Hrubieszów:</span><span className="whitespace-nowrap">697 994 924</span></a>
