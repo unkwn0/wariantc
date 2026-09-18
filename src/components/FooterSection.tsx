@@ -6,7 +6,7 @@ export default function FooterSection() {
           <span className="font-playfair font-bold text-xl text-white">GRANBET</span>
           <span className="block font-cormorant text-g-gold">Zakład Kamieniarski — Henryk Sobczuk</span>
           <p className="font-inter text-sm text-g-textMuted mt-2">
-            Własna produkcja od 1988 roku.<br />
+            Działamy od 1988 roku.<br />
             Nagrobki granitowe · grobowce · fotoceramika
           </p>
         </div>
