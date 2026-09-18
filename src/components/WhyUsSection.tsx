@@ -25,7 +25,7 @@ const stats: Stat[] = [
   { value: '1988', label: 'Rok rozpoczęcia działalności' },
   { value: '3', label: 'Lokalizacje', count: { end: 3, suffix: '' } },
   { value: '2', label: 'Punkty z obsługą klienta', count: { end: 2, suffix: '' } },
-  { value: 'Kryłów', label: 'Zakład produkcyjny', valueClass: 'font-playfair text-3xl sm:text-5xl md:text-6xl text-g-gold font-bold' },
+  { value: 'Kryłów', label: 'Zakład produkcyjny', valueClass: 'font-playfair text-3xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl text-g-gold font-bold' },
 ];
 
 const checks = [
