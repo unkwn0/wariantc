@@ -4,24 +4,33 @@ import { useCountUp } from '@/hooks/useCountUp';
 // ─── DANE TEJ SEKCJI ──────────────────────────────────────────────────
 // Wyłącznie informacje potwierdzone w projekcie: rok 1988, trzy lokalizacje,
 // dwa punkty z obsługą klienta (Kryłów i Hrubieszów — w Dołhobyczowie jest
-// ekspozycja bez stałej obsługi) oraz własna produkcja nagrobków.
+// ekspozycja bez stałej obsługi) oraz lokalizacja zakładu produkcyjnego.
 // Rok 1988 podajemy statycznie: nie znamy dokładnej daty rozpoczęcia
 // działalności ani nie mamy potwierdzenia jej nieprzerwanego prowadzenia,
 // więc nie wyliczamy liczby lat i nie animujemy roku jak licznika.
 // Nie dopisuj tu liczb bez potwierdzenia od właściciela.
 // ──────────────────────────────────────────────────────────────────────
-type Stat = { value: string; label: string; count?: { end: number; suffix: string } };
+type Stat = {
+  value: string;
+  label: string;
+  count?: { end: number; suffix: string };
+  // Dla wartości słownych (dłuższych niż liczba) mniejszy stopień pisma,
+  // żeby zmieściły się w kolumnie przy 360 px — bez zmiany typografii strony.
+  valueClass?: string;
+};
+
+const VALUE_CLASS = 'font-playfair text-6xl md:text-7xl text-g-gold font-bold';
 
 const stats: Stat[] = [
   { value: '1988', label: 'Rok rozpoczęcia działalności' },
   { value: '3', label: 'Lokalizacje', count: { end: 3, suffix: '' } },
   { value: '2', label: 'Punkty z obsługą klienta', count: { end: 2, suffix: '' } },
-  { value: '100%', label: 'Własna produkcja nagrobków', count: { end: 100, suffix: '%' } },
+  { value: 'Kryłów', label: 'Zakład produkcyjny', valueClass: 'font-playfair text-3xl sm:text-5xl md:text-6xl text-g-gold font-bold' },
 ];
 
 const checks = [
   'Doświadczenie zdobywane od 1988 roku',
-  'Nagrobki, grobowce i renowacje z własnej pracowni',
+  'Nagrobki, grobowce i renowacje',
   'Indywidualne podejście do każdego zlecenia',
   'Terminowość i rzetelność',
   'Obsługa Hrubieszów, Kryłów i Dołhobyczów',
@@ -29,15 +38,15 @@ const checks = [
 
 function CountedValue({ end, suffix }: { end: number; suffix: string }) {
   const { ref, display } = useCountUp(end, suffix);
-  return <span ref={ref} className="font-playfair text-6xl md:text-7xl text-g-gold font-bold">{display}</span>;
+  return <span ref={ref} className={VALUE_CLASS}>{display}</span>;
 }
 
-function StatItem({ value, label, count }: Stat) {
+function StatItem({ value, label, count, valueClass }: Stat) {
   return (
     <div className="text-center" data-animate="fade-in">
       {count
         ? <CountedValue end={count.end} suffix={count.suffix} />
-        : <span className="font-playfair text-6xl md:text-7xl text-g-gold font-bold">{value}</span>}
+        : <span className={valueClass ?? VALUE_CLASS}>{value}</span>}
       <p className="font-inter text-base text-g-textLight mt-2">{label}</p>
     </div>
   );
